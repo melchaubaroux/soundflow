@@ -52,7 +52,7 @@ services:
 
   # db backend for mlflow
   postgresql:
-    image: postgres
+    image: postgres:latest
     container_name: postgresql
     expose:
       - "5432"
@@ -61,8 +61,8 @@ services:
       - ./env_files/secrets.env
     hostname: postgresql
     shm_size: 256mb
-    volumes:
-      - ./dbs:/var/lib/postgresql/data
+    # volumes:
+    #   - ./dbs:/var/lib/postgresql/data
     networks:
       - backend
     # restart: always
